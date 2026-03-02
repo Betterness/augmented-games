@@ -92,10 +92,7 @@ cfg = os.path.expanduser('~/.mcporter/mcporter.json')
 d = json.load(open(cfg))
 servers = d.get('servers', d.get('mcpServers', {}))
 s = servers.get('augmented-games', {})
-for h in s.get('headers', []):
-    if 'X-API-Key' in h:
-        print(h.split('=',1)[1])
-        break
+print(s.get('headers', {}).get('X-API-Key', ''))
 " 2>/dev/null || echo "")
   if [[ "$EXISTING_KEY" != "$API_KEY" ]]; then
     # Different key already configured — use a namespaced server to avoid conflict
